@@ -66,3 +66,9 @@ Sat 10 Sep 2022 01:48:50 AM UTC:
  tests:  5|4
 total_score: 30/70
 ec3078d
+Sat 10 Sep 2022 01:49:49 AM UTC: 
+ hashmap.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+ tests:  6|3
+total_score: 40/70
+98ec10b
