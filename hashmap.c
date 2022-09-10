@@ -57,22 +57,17 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-    Pair **ogBuckets = map->buckets;
-    long ogCapacity = map->capacity;
+    Pair **ogBuckets= map->buckets;
+    long ogCapacity= map->capacity;
     map->capacity *= 2;
-    map->buckets = (Pair**) malloc (map->capacity * sizeof(Pair*));
-    for (int i = 0; i < map->capacity; i++)
-    {
-        map->buckets[i] = (Pair *) malloc (sizeof(Pair));
-        map->buckets[i] = NULL;
+    map->buckets= (Pair**) malloc (map->capacity* sizeof(Pair*));
+    for (int i= 0; i< map->capacity; i++){
+        map->buckets[i]= (Pair *)malloc(sizeof(Pair));
+        map->buckets[i]= NULL;
     }
-    
-    map->size = 0;
-
-    for (int i = 0; i < ogCapacity; i++)
-    {
-        if (ogBuckets[i] != NULL)
-            insertMap(map, ogBuckets[i]->key, ogBuckets[i]->value);
+    map->size= 0;
+    for (int i= 0; i< ogCapacity; i++){
+        if (ogBuckets[i] != NULL) insertMap(map, ogBuckets[i]->key, ogBuckets[i]->value);
     }
 }
 
