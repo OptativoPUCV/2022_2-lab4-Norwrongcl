@@ -124,3 +124,9 @@ hashmap.c:47:67: note: ...this statement, but the latter is misleadingly indente
 cc1: all warnings being treated as errors
 Compilation failed
 7a98aa6
+Sat 10 Sep 2022 01:55:16 AM UTC: 
+ hashmap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ tests:  17|0
+total_score: 70/70
+b19420b
