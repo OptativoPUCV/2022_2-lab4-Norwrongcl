@@ -110,3 +110,17 @@ hashmap.c:43:6: note: declared here
 cc1: all warnings being treated as errors
 Compilation failed
 db9acfb
+Sat 10 Sep 2022 01:55:05 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:47:9: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   47 |         if (is_equal(key, map->buckets[index]->key) == 1) return; index= (index+1) % map->capacity;
+      |         ^~
+hashmap.c:47:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   47 |         if (is_equal(key, map->buckets[index]->key) == 1) return; index= (index+1) % map->capacity;
+      |                                                                   ^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+7a98aa6
