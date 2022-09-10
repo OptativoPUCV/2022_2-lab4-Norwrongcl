@@ -41,7 +41,7 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
-    long index = hash(key, map->capacity);
+    long index= hash(key, map->capacity);
 
     while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
         if (is_equal(key, map->buckets[index]->key) == 1) return; 
@@ -51,7 +51,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->buckets[index]->key= key;
         map->buckets[index]->value= value;
     }
-    else map->buckets[index] = createPair(key, value);
+    else map->buckets[index]= createPair(key, value);
     map->size++;
 }
 
@@ -82,41 +82,35 @@ HashMap * createMap(long capacity){
 
 void eraseMap(HashMap * map,  char * key){
 	long index = hash(key, map->capacity);
-
-    while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
-        if (is_equal(key, map->buckets[index]->key) == 1){
-            map->buckets[index]->key= NULL;
-            break;
-        }
-        index= (index+1)% map->capacity;
-    }
-    map->size--;
+  while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
+      if (is_equal(key, map->buckets[index]->key) == 1){
+          map->buckets[index]->key= NULL;
+          break;
+      }
+      index= (index+1)% map->capacity;
+  }
+  map->size--;
 }
 
 Pair * searchMap(HashMap * map,  char * key){
-	long hashFunction = hash(key, map->capacity);
-    Pair* searchedElement = NULL;
-    while (map->buckets[hashFunction] != NULL && map->buckets[hashFunction]->key != NULL)
-    {
-        if (is_equal(key, map->buckets[hashFunction]->key) == 1)
-        {
-            searchedElement = map->buckets[hashFunction];
-            map->current = hashFunction;
-            return searchedElement;
+	long index= hash(key, map->capacity);
+    Pair* searchelement= NULL;
+    while (map->buckets[index] != NULL && map->buckets[index]->key != NULL){
+        if (is_equal(key, map->buckets[index]->key) == 1){
+            searchelement= map->buckets[index];
+            map->current= index;
+            return searchelement;
         }
-        hashFunction = (hashFunction+1) % map->capacity;
+        index= (index+1)% map->capacity;
     }
-
-    map->current = hashFunction;
+    map->current= index;
     return NULL;
 }
 
 Pair * firstMap(HashMap * map){
-	for (int i = 0; i < map->capacity; i++)
-    {
-        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL)
-        {
-            map->current = i;
+	for (int i= 0; i< map->capacity; i++){
+        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL){
+            map->current= i;
             return map->buckets[i];
         }
     }
@@ -124,11 +118,9 @@ Pair * firstMap(HashMap * map){
 }
 
 Pair * nextMap(HashMap * map) {
- 	for (int i = map->current+1; i < map->capacity; i++)
-    {
-        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL)
-        {
-            map->current = i;
+ 	for (int i= map->current+1; i< map->capacity; i++){
+        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL){
+            map->current= i;
             return map->buckets[i];
         }
     }
