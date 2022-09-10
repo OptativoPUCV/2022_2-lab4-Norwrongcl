@@ -28,3 +28,24 @@ hashmap.c:86:1: error: control reaches end of non-void function [-Werror=return-
 cc1: all warnings being treated as errors
 Compilation failed
 4bcb0c8
+Sat 10 Sep 2022 01:48:23 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c:87:3: error: expected identifier or ‘(’ before ‘return’
+   87 |   return NULL;
+      |   ^~~~~~
+hashmap.c:88:1: error: expected identifier or ‘(’ before ‘}’ token
+   88 | }
+      | ^
+hashmap.c: In function ‘searchMap’:
+hashmap.c:83:1: error: control reaches end of non-void function [-Werror=return-type]
+   83 | }
+      | ^
+hashmap.c: In function ‘firstMap’:
+hashmap.c:86:1: error: control reaches end of non-void function [-Werror=return-type]
+   86 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+c8b6557
