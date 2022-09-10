@@ -96,3 +96,17 @@ Sat 10 Sep 2022 01:51:44 AM UTC:
  tests:  17|0
 total_score: 70/70
 683920e
+Sat 10 Sep 2022 01:54:54 AM UTC: 
+ hashmap.c | 18 +++++++-----------
+ 1 file changed, 7 insertions(+), 11 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:47:71: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   47 |         if (is_equal(key, map->buckets[index]->key) == 1) return index= (index+1) % map->capacity;
+      |                                                                  ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+hashmap.c:43:6: note: declared here
+   43 | void insertMap(HashMap * map, char * key, void * value) {
+      |      ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+db9acfb
