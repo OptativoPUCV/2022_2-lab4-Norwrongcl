@@ -10,3 +10,21 @@ Sat 10 Sep 2022 01:15:37 AM UTC:
  tests:  1|5
 total_score: 10/70
 781f2ee
+Sat 10 Sep 2022 01:48:03 AM UTC: 
+ hashmap.c | 23 ++++++++++++++++++-----
+ 1 file changed, 18 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c:88:1: error: expected identifier or ‘(’ before ‘}’ token
+   88 | }
+      | ^
+hashmap.c: In function ‘searchMap’:
+hashmap.c:83:1: error: control reaches end of non-void function [-Werror=return-type]
+   83 | }
+      | ^
+hashmap.c: In function ‘firstMap’:
+hashmap.c:86:1: error: control reaches end of non-void function [-Werror=return-type]
+   86 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+4bcb0c8
